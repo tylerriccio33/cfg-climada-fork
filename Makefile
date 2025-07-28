@@ -41,7 +41,7 @@ integ_test : ## Integration tests execution with xml reports
 
 .PHONY : test
 test : ## Unit and integration tests execution with coverage and xml reports
-	pytest $(PYTEST_ARGS) climada/
+	uv run pytest
 
 .PHONY : ci-clean
 ci-clean :
