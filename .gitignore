@@ -185,3 +185,5 @@ results/
 !.github
 climada_petals/
 climada_python/
+
+uv.lock
