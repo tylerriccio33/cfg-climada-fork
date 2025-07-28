@@ -20,6 +20,7 @@ Tests on Black marble.
 """
 
 import gzip
+import pytest
 import io
 import tarfile
 import unittest
@@ -29,7 +30,6 @@ from tempfile import TemporaryDirectory
 import affine
 import numpy as np
 import scipy.sparse as sparse
-from osgeo import gdal
 from PIL import Image
 from shapely.geometry import Polygon
 
@@ -112,6 +112,10 @@ class TestNightlight(unittest.TestCase):
     def test_read_bm_files(self):
         """ " Test that read_bm_files function read NASA BlackMarble GeoTiff and output
         an array and a gdal DataSet."""
+        try:
+            from osgeo import gdal
+        except ImportError:
+            pytest.skip(reason="gdal not installed")
 
         # Download 'BlackMarble_2016_A1_geo_gray.tif' in the temporary directory and create a path
         temp_dir = TemporaryDirectory()

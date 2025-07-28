@@ -31,7 +31,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import rasterio
 import scipy.sparse as sparse
-from osgeo import gdal
 from PIL import Image
 from shapefile import Shape
 
@@ -504,6 +503,11 @@ def read_bm_file(bm_path, filename):
     curr_file : gdal GeoTiff File
         Additional info from which coordinates can be calculated.
     """
+    try:
+        from osgeo import gdal
+    except ImportError:
+        msg :str = "GDAL is not installed. Please install GDAL to read BlackMarble files."
+        raise ImportError(msg)
     path = Path(bm_path, filename)
     LOGGER.debug("Importing%s.", path)
     if not path.exists():
