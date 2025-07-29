@@ -367,7 +367,7 @@ def _fetch_conf(directories, config_name):
     return conf_dct
 
 
-SOURCE_DIR = Path(__file__).absolute().parent.parent.parent
+SOURCE_DIR = Path(__file__).absolute().parent.parent
 CONFIG_NAME = "climada.conf"
 CONFIG_DIRS = [
     Path(SOURCE_DIR, "climada", "conf"),  # default config from the climada repository
@@ -379,16 +379,3 @@ CONFIG_DIRS = [
 CONFIG = Config.from_dict(_fetch_conf(CONFIG_DIRS, CONFIG_NAME))
 Config.SOURCE_DIR = SOURCE_DIR
 
-
-# set climada style logging
-if CONFIG.logging.managed.bool():
-    LOGGER = logging.getLogger("climada")
-    LOGGER.propagate = False
-    FORMATTER = logging.Formatter(
-        "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-    )
-    CONSOLE = logging.StreamHandler(stream=sys.stdout)
-    CONSOLE.setFormatter(FORMATTER)
-    LOGGER.addHandler(CONSOLE)
-
-    LOGGER.setLevel(getattr(logging, CONFIG.log_level.str()))

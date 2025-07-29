@@ -127,7 +127,4 @@ class TestDataAvail(unittest.TestCase):
 
 # Execute Tests
 if __name__ == "__main__":
-    from sys import argv
-
-    outputdir = argv[1] if len(argv) > 1 else str(Path.cwd().joinpath("tests_xml"))
-    pytest.main([f"--junitxml={outputdir}/tests.xml", __file__])
+    pytest.main([__file__])
