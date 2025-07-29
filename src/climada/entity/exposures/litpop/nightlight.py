@@ -263,9 +263,7 @@ def check_nl_local_file_exists(required_files=None, check_path=SYSTEM_DIR, year=
         required_files = np.ones(
             np.count_nonzero(BM_FILENAMES),
         )
-        LOGGER.warning(
-            "The parameter 'required_files' was too short and " "is ignored."
-        )
+        LOGGER.warning("The parameter 'required_files' was too short and is ignored.")
     if isinstance(check_path, str):
         check_path = Path(check_path)
     if not check_path.is_dir():
@@ -506,7 +504,9 @@ def read_bm_file(bm_path, filename):
     try:
         from osgeo import gdal
     except ImportError:
-        msg :str = "GDAL is not installed. Please install GDAL to read BlackMarble files."
+        msg: str = (
+            "GDAL is not installed. Please install GDAL to read BlackMarble files."
+        )
         raise ImportError(msg)
     path = Path(bm_path, filename)
     LOGGER.debug("Importing%s.", path)

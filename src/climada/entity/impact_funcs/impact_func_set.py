@@ -550,7 +550,6 @@ class ImpactFuncSet:
         imp_wb.close()
 
     def _fill_dfr(self, dfr, var_names):
-
         def _get_xls_funcs(dfr, var_names):
             """Parse individual impact functions."""
             dist_func = []
@@ -586,7 +585,7 @@ class ImpactFuncSet:
                 try:
                     if len(df_func[var_names["col_name"]["unit"]].unique()) != 1:
                         raise ValueError(
-                            "Impact function with two different" " intensity units."
+                            "Impact function with two different intensity units."
                         )
                     impf_kwargs["intensity_unit"] = df_func[
                         var_names["col_name"]["unit"]

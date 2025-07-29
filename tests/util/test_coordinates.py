@@ -1699,7 +1699,6 @@ class TestRasterMeta(unittest.TestCase):
     def test_points_to_raster_pass(self):
         """Test points_to_raster"""
         for scheduler in [None, "threads", "synchronous", "processes"]:
-
             df_val = gpd.GeoDataFrame()
             x, y = np.meshgrid(np.linspace(0, 2, 5), np.linspace(40, 50, 10))
             df_val["latitude"] = y.flatten()

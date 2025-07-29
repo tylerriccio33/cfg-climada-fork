@@ -786,7 +786,7 @@ def get_country_geometries(
 
         # raise error if a country name is not recognized
         for country_name in country_names:
-            if not country_name in nat_earth[["ISO_A3", "WB_A3", "ADM0_A3"]].values:
+            if country_name not in nat_earth[["ISO_A3", "WB_A3", "ADM0_A3"]].values:
                 raise ValueError(f"ISO code {country_name} not recognized.")
 
         country_mask = np.isin(
@@ -1226,7 +1226,7 @@ def _nearest_neighbor_approx(
 
     if num_warn:
         LOGGER.warning(
-            "Distance to closest centroid is greater than %s" "km for %s coordinates.",
+            "Distance to closest centroid is greater than %skm for %s coordinates.",
             threshold,
             num_warn,
         )
@@ -1282,7 +1282,7 @@ def _nearest_neighbor_haversine(centroids, coordinates, threshold):
     num_warn = np.sum(dist * EARTH_RADIUS_KM > threshold)
     if num_warn:
         LOGGER.warning(
-            "Distance to closest centroid is greater than %s" "km for %s coordinates.",
+            "Distance to closest centroid is greater than %skm for %s coordinates.",
             threshold,
             num_warn,
         )
@@ -1332,7 +1332,7 @@ def _nearest_neighbor_euclidean(
     num_warn = np.sum(dist * EARTH_RADIUS_KM > threshold)
     if num_warn:
         LOGGER.warning(
-            "Distance to closest centroid is greater than %s" "km for %s coordinates.",
+            "Distance to closest centroid is greater than %skm for %s coordinates.",
             threshold,
             num_warn,
         )
@@ -1373,8 +1373,7 @@ def _nearest_neighbor_antimeridian(centroids, coordinates, threshold, assigned):
     lon_max = max(centroids[:, 1].max(), coordinates[:, 1].max())
     if lon_max - lon_min > 360:
         raise ValueError(
-            "Longitudinal coordinates need to be normalized"
-            "to a common 360 degree range"
+            "Longitudinal coordinates need to be normalizedto a common 360 degree range"
         )
     mid_lon = 0.5 * (lon_max + lon_min)
     antimeridian = mid_lon + 180
@@ -2853,8 +2852,9 @@ def subraster_from_bounds(transform, bounds):
 
     # align the window bounds to the raster by rounding
     col_min, col_max = np.round(window.col_off), np.round(window.col_off + window.width)
-    row_min, row_max = np.round(window.row_off), np.round(
-        window.row_off + window.height
+    row_min, row_max = (
+        np.round(window.row_off),
+        np.round(window.row_off + window.height),
     )
     window = rasterio.windows.Window(
         col_min, row_min, col_max - col_min, row_max - row_min

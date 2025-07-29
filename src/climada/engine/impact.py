@@ -188,8 +188,7 @@ class Impact:
             )
         if len(self.coord_exp) != len(self.eai_exp):
             raise AttributeError(
-                "Number of exposures points is different from"
-                "number of eai_exp values"
+                "Number of exposures points is different fromnumber of eai_exp values"
             )
         if imp_mat is not None:
             self.imp_mat = imp_mat
@@ -1238,8 +1237,9 @@ class Impact:
 
         impacts_stats_vals = impacts_stats.values[:, 1:].T.astype(float)
         if not log10_scale:
-            min_impact, max_impact = np.nanmin(impacts_stats_vals), np.nanmax(
-                impacts_stats_vals
+            min_impact, max_impact = (
+                np.nanmin(impacts_stats_vals),
+                np.nanmax(impacts_stats_vals),
             )
             kwargs.update(
                 {
@@ -1471,7 +1471,6 @@ class Impact:
 
         # Open file in write mode
         with h5py.File(file_path, "w") as file:
-
             # Now write all attributes
             # NOTE: Remove leading underscore to write '_tot_value' as regular attribute
             for name, value in self.__dict__.items():
@@ -1612,8 +1611,7 @@ class Impact:
     def read_excel(self, *args, **kwargs):
         """This function is deprecated, use Impact.from_excel instead."""
         LOGGER.warning(
-            "The use of Impact.read_excel is deprecated."
-            "Use Impact.from_excel instead."
+            "The use of Impact.read_excel is deprecated.Use Impact.from_excel instead."
         )
         self.__dict__ = Impact.from_excel(*args, **kwargs).__dict__
 
@@ -1671,7 +1669,6 @@ class Impact:
         """
         kwargs = dict()
         with h5py.File(file_path, "r") as file:
-
             # Impact matrix
             if "imp_mat" in file:
                 impact_matrix = file["imp_mat"]

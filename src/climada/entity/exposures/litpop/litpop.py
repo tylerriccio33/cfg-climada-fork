@@ -267,8 +267,7 @@ class LitPop(Exposures):
             }
         except ValueError:
             LOGGER.warning(
-                "Could not write attribute meta, because exposure"
-                " has only 1 data point"
+                "Could not write attribute meta, because exposure has only 1 data point"
             )
             exp.meta = {"crs": exp.crs}
         exp.check()
@@ -1030,8 +1029,7 @@ def _get_total_value_per_country(cntry_iso3a, fin_mode, reference_year):
         return None
     if fin_mode == "pop":
         raise NotImplementedError(
-            "`_get_total_value_per_country` is not "
-            "implemented for `fin_mode` == 'pop'."
+            "`_get_total_value_per_country` is not implemented for `fin_mode` == 'pop'."
         )
     if fin_mode == "pc":
         return u_fin.world_bank_wealth_account(
@@ -1422,8 +1420,7 @@ def _calc_admin1_one_country(
     grp_values = _grp_read(iso3a, admin1_info=admin1_info, data_dir=data_dir)
     if grp_values is None:
         LOGGER.error(
-            "No subnational GRP data found for calc_admin1"
-            " for country %s. Skipping.",
+            "No subnational GRP data found for calc_admin1 for country %s. Skipping.",
             country,
         )
         return None

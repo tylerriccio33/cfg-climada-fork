@@ -32,7 +32,7 @@ from scipy.sparse import csr_matrix
 
 from climada.hazard.base import Hazard
 from climada.hazard.test.test_base import DATA_DIR, dummy_hazard
-from climada.util.constants import DEF_CRS, DEF_FREQ_UNIT, HAZ_DEMO_FL, HAZ_TEMPLATE_XLS
+from climada.util.constants import DEF_CRS, DEF_FREQ_UNIT, HAZ_TEMPLATE_XLS
 
 
 class TestReadDefaultNetCDF(unittest.TestCase):
@@ -144,9 +144,10 @@ class TestReadDefaultNetCDF(unittest.TestCase):
         )
 
         # Passing a DataArray
-        with xr.open_dataset(self.netcdf_path) as dset, self.assertRaises(
-            TypeError
-        ) as cm:
+        with (
+            xr.open_dataset(self.netcdf_path) as dset,
+            self.assertRaises(TypeError) as cm,
+        ):
             Hazard.from_xarray_raster(dset["intensity"], "", "")
         self.assertIn(
             "This method only supports xarray.Dataset as input data",

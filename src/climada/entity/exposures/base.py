@@ -480,7 +480,7 @@ class Exposures:
         for var in sorted(
             set(self.vars_def).difference([INDICATOR_IMPF, INDICATOR_IMPF_OLD])
         ):
-            if not var in self.gdf.columns:
+            if var not in self.gdf.columns:
                 LOGGER.info("%s not set.", var)
 
         # special treatment for impf_*
@@ -499,7 +499,7 @@ class Exposures:
 
         # optional columns except centr_*
         for var in sorted(set(self.vars_opt).difference([INDICATOR_CENTR])):
-            if not var in self.gdf.columns:
+            if var not in self.gdf.columns:
                 LOGGER.info("%s not set.", var)
 
         # special treatment for centr_*

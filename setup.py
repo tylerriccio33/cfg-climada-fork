@@ -1,5 +1,4 @@
-"""A setuptools based setup module.
-"""
+"""A setuptools based setup module."""
 
 from pathlib import Path
 

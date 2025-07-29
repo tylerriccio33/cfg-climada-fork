@@ -28,7 +28,6 @@ import logging
 import re
 import shutil
 import warnings
-from operator import itemgetter
 from pathlib import Path
 from typing import List, Optional
 
@@ -39,7 +38,6 @@ import geopandas as gpd
 import matplotlib.cm as cm_mp
 import matplotlib.pyplot as plt
 import netCDF4 as nc
-import numba
 import numpy as np
 import pandas as pd
 import pathos
@@ -399,7 +397,6 @@ class TCTracks:
         # Find indices corresponding to the date range
         index: list = []
         for i, track in enumerate(self.data):
-
             date_array = track.time[0].to_numpy()
             year = date_array.astype("datetime64[Y]").item().year
             month = date_array.astype("datetime64[M]").item().month
@@ -609,7 +606,7 @@ class TCTracks:
         """
         if correct_pres:
             LOGGER.warning(
-                "`correct_pres` is deprecated. " "Use `estimate_missing` instead."
+                "`correct_pres` is deprecated. Use `estimate_missing` instead."
             )
             estimate_missing = True
         if estimate_missing and not rescale_windspeeds:
@@ -1763,7 +1760,6 @@ class TCTracks:
             with xr.open_dataset(file) as dataset:
                 for year in dataset.year:
                     for i in dataset.n_trk:
-
                         # Select track
                         track = dataset.sel(n_trk=i, year=year)
                         # chunk dataset at first NaN value
@@ -2046,7 +2042,7 @@ class TCTracks:
             return track
         if track["time"].size < 2:
             LOGGER.warning(
-                "Track interpolation not done. " "Not enough elements for %s",
+                "Track interpolation not done. Not enough elements for %s",
                 track.name,
             )
             track_int = track

@@ -24,9 +24,7 @@ __all__ = [
 ]
 
 import json
-import logging
 import re
-import sys
 from pathlib import Path
 
 
@@ -87,7 +85,7 @@ class Config:
                 [
                     f"{k}: {v}"
                     for (k, v) in self.__dict__.items()
-                    if not k in {"_name", "_root"}
+                    if k not in {"_name", "_root"}
                 ]
             )
         )
@@ -378,4 +376,3 @@ CONFIG_DIRS = [
 
 CONFIG = Config.from_dict(_fetch_conf(CONFIG_DIRS, CONFIG_NAME))
 Config.SOURCE_DIR = SOURCE_DIR
-

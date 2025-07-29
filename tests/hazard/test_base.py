@@ -23,7 +23,6 @@ import unittest
 from pathlib import Path
 
 import numpy as np
-from pathos.pools import ProcessPool as Pool
 from scipy import sparse
 
 import climada.util.coordinates as u_coord
