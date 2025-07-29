@@ -19,4 +19,4 @@ with CLIMADA. If not, see <https://www.gnu.org/licenses/>.
 init centroids
 """
 
-from .centr import *
+from .centr import *  # noqa: F403

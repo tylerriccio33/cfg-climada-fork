@@ -483,11 +483,11 @@ class Centroids:
         -------
         ax : cartopy.mpl.geoaxes.GeoAxes instance
         """
-        if axis == None:
+        if axis is None:
             fig, axis = plt.subplots(
                 figsize=figsize, subplot_kw={"projection": ccrs.PlateCarree()}
             )
-        if type(axis) != cartopy.mpl.geoaxes.GeoAxes:
+        if type(axis) != cartopy.mpl.geoaxes.GeoAxes:  # noqa: E721
             raise AttributeError(
                 f"The axis provided is of type: {type(axis)} "
                 "The function requires a cartopy.mpl.geoaxes.GeoAxes."

@@ -181,7 +181,7 @@ class TestPlot(unittest.TestCase):
         self.assertIn("31.12.2017 00UTC +3d", title_texts)
         # should contain average impact in axes
         artists = ax.get_children()
-        texts = [x.get_text() for x in artists if type(x) == plt.Text]
+        texts = [x.get_text() for x in artists if type(x) is plt.Text]
         self.assertIn("mean impact:\n 26  USD", texts)
         ax.get_figure().clf()
         # should contain title strings

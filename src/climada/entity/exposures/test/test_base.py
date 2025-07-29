@@ -637,7 +637,7 @@ class TestGeoDFFuncs(unittest.TestCase):
 
     def test_set_crs(self):
         """Test setting the CRS"""
-        empty_gdf = gpd.GeoDataFrame()
+        gpd.GeoDataFrame()
         gdf_without_geometry = good_exposures().gdf
         good_exp = good_exposures()
         gdf_with_geometry = good_exp.gdf

@@ -19,6 +19,6 @@ with CLIMADA. If not, see <https://www.gnu.org/licenses/>.
 init litpop
 """
 
-from .gpw_population import *
-from .litpop import *
-from .nightlight import *
+from .gpw_population import *  # noqa: F403
+from .litpop import *  # noqa: F403
+from .nightlight import *  # noqa: F403

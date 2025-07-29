@@ -44,7 +44,7 @@ class TestConfig(unittest.TestCase):
         try:
             conf.a.int()
             self.fail("this should have failed with `<class 'float'>, not int`")
-        except:
+        except:  # noqa: E722
             pass
         self.assertEqual(conf.b.get(0).int(), 0)
         self.assertEqual(conf.b.int(0), 0)

@@ -88,14 +88,14 @@ class TestEmanuelFormula(unittest.TestCase):
     def test_wrong_shape(self):
         """Set shape parameters."""
         with self.assertRaises(ValueError):
-            imp_fun = ImpfTropCyclone.from_emanuel_usa(
+            ImpfTropCyclone.from_emanuel_usa(
                 impf_id=5, v_thresh=2, v_half=1, intensity=np.arange(0, 6, 1)
             )
 
     def test_wrong_scale(self):
         """Set shape parameters."""
         with self.assertRaises(ValueError):
-            imp_fun = ImpfTropCyclone.from_emanuel_usa(
+            ImpfTropCyclone.from_emanuel_usa(
                 impf_id=5, scale=2, intensity=np.arange(0, 6, 1)
             )
 

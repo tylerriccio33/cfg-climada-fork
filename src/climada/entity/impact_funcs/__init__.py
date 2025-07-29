@@ -19,6 +19,6 @@ with CLIMADA. If not, see <https://www.gnu.org/licenses/>.
 init impact functions
 """
 
-from .base import *
-from .impact_func_set import *
-from .trop_cyclone import *
+from .base import *  # noqa: F403
+from .impact_func_set import *  # noqa: F403
+from .trop_cyclone import *  # noqa: F403

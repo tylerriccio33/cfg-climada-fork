@@ -23,10 +23,10 @@ import logging
 
 from pint import UnitRegistry
 
-from .config import *
-from .constants import *
-from .coordinates import *
-from .save import *
+from .config import *  # noqa: F403
+from .constants import *  # noqa: F403
+from .coordinates import *  # noqa: F403
+from .save import *  # noqa: F403
 
 ureg = UnitRegistry()
 

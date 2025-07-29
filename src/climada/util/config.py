@@ -62,23 +62,23 @@ class Config:
         # pylint: disable=bare-except,multiple-statements,too-complex
         try:
             return self.str()
-        except:
+        except:  # noqa: E722
             pass
         try:
             return str(self.int())
-        except:
+        except:  # noqa: E722
             pass
         try:
             return str(self.float())
-        except:
+        except:  # noqa: E722
             pass
         try:
             return str(self.bool())
-        except:
+        except:  # noqa: E722
             pass
         try:
             return str(self.list())
-        except:
+        except:  # noqa: E722
             pass
         return "{{{}}}".format(
             ", ".join(

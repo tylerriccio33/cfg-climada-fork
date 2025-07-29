@@ -105,11 +105,3 @@ class TestCheck(unittest.TestCase):
         with self.assertRaises(ValueError) as cm:
             ent.disc_rates = Exposures()
         self.assertIn("DiscRates", str(cm.exception))
-
-
-# Execute Tests
-if __name__ == "__main__":
-    TESTS = unittest.TestLoader().loadTestsFromTestCase(TestReader)
-    TESTS.addTests(unittest.TestLoader().loadTestsFromTestCase(TestCheck))
-    TESTS.addTests(unittest.TestLoader().loadTestsFromTestCase(TestStringRepr))
-    unittest.TextTestRunner(verbosity=2).run(TESTS)

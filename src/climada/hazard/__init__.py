@@ -19,8 +19,8 @@ with CLIMADA. If not, see <https://www.gnu.org/licenses/>.
 init hazard
 """
 
-from .base import *
-from .centroids import *
-from .storm_europe import *
-from .tc_tracks import *
-from .trop_cyclone import *
+from .base import *  # noqa: F403
+from .centroids import *  # noqa: F403
+from .storm_europe import *  # noqa: F403
+from .tc_tracks import *  # noqa: F403
+from .trop_cyclone import *  # noqa: F403

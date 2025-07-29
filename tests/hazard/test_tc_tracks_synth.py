@@ -573,7 +573,7 @@ class TestDecay(unittest.TestCase):
         self.assertTrue(np.all(p_synth_lf >= p_hist_lf))
 
         # wind speed
-        v_hist_lf = track_hist["max_sustained_wind"].values[start_lf_idx:end_lf_idx]
+        track_hist["max_sustained_wind"].values[start_lf_idx:end_lf_idx]
         v_synth_lf = track["max_sustained_wind"].values[start_lf_idx:end_lf_idx]
         # wind should decrease over time for that landfall
         v_before_lf = track_hist["max_sustained_wind"].values[start_lf_idx - 1]

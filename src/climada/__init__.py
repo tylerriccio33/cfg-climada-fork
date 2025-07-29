@@ -22,27 +22,27 @@ climada init
 from pathlib import Path
 from shutil import copyfile
 
-from .util.config import CONFIG
+from .util.config import CONFIG  # noqa: F401
 from .util.constants import *
 
-GSDP_DIR = SYSTEM_DIR.joinpath("GSDP")
+GSDP_DIR = SYSTEM_DIR.joinpath("GSDP")  # noqa: F405
 
 REPO_DATA = {
     "climada/data/system": [
-        ISIMIP_GPWV3_NATID_150AS,
-        GLB_CENTROIDS_MAT,
-        ENT_TEMPLATE_XLS,
-        HAZ_TEMPLATE_XLS,
-        RIVER_FLOOD_REGIONS_CSV,
-        NATEARTH_CENTROIDS[150],
-        NATEARTH_CENTROIDS[360],
-        SYSTEM_DIR.joinpath("WEALTH2GDP_factors_CRI_2016.csv"),
-        SYSTEM_DIR.joinpath("GDP_TWN_IMF_WEO_data.csv"),
-        SYSTEM_DIR.joinpath("FAOSTAT_data_country_codes.csv"),
-        SYSTEM_DIR.joinpath("rcp_db.xls"),
-        SYSTEM_DIR.joinpath("tc_impf_cal_v01_TDR1.0.csv"),
-        SYSTEM_DIR.joinpath("tc_impf_cal_v01_EDR.csv"),
-        SYSTEM_DIR.joinpath("tc_impf_cal_v01_RMSF.csv"),
+        ISIMIP_GPWV3_NATID_150AS,  # noqa: F405
+        GLB_CENTROIDS_MAT,  # noqa: F405
+        ENT_TEMPLATE_XLS,  # noqa: F405
+        HAZ_TEMPLATE_XLS,  # noqa: F405
+        RIVER_FLOOD_REGIONS_CSV,  # noqa: F405
+        NATEARTH_CENTROIDS[150],  # noqa: F405
+        NATEARTH_CENTROIDS[360],  # noqa: F405
+        SYSTEM_DIR.joinpath("WEALTH2GDP_factors_CRI_2016.csv"),  # noqa: F405
+        SYSTEM_DIR.joinpath("GDP_TWN_IMF_WEO_data.csv"),  # noqa: F405
+        SYSTEM_DIR.joinpath("FAOSTAT_data_country_codes.csv"),  # noqa: F405
+        SYSTEM_DIR.joinpath("rcp_db.xls"),  # noqa: F405
+        SYSTEM_DIR.joinpath("tc_impf_cal_v01_TDR1.0.csv"),  # noqa: F405
+        SYSTEM_DIR.joinpath("tc_impf_cal_v01_EDR.csv"),  # noqa: F405
+        SYSTEM_DIR.joinpath("tc_impf_cal_v01_RMSF.csv"),  # noqa: F405
     ],
     "climada/data/system/GSDP": [
         GSDP_DIR.joinpath(f"{cc}_GSDP.xls")
@@ -64,17 +64,17 @@ REPO_DATA = {
         ]
     ],
     "climada/data/demo": [
-        ENT_DEMO_TODAY,
-        ENT_DEMO_FUTURE,
-        EXP_DEMO_H5,
-        HAZ_DEMO_FL,
-        HAZ_DEMO_MAT,
-        HAZ_DEMO_H5,
-        TC_ANDREW_FL,
-        DEMO_DIR.joinpath("demo_emdat_impact_data_2020.csv"),
-        DEMO_DIR.joinpath("nl_rails.gpkg"),
+        ENT_DEMO_TODAY,  # noqa: F405
+        ENT_DEMO_FUTURE,  # noqa: F405
+        EXP_DEMO_H5,  # noqa: F405
+        HAZ_DEMO_FL,  # noqa: F405
+        HAZ_DEMO_MAT,  # noqa: F405
+        HAZ_DEMO_H5,  # noqa: F405
+        TC_ANDREW_FL,  # noqa: F405
+        DEMO_DIR.joinpath("demo_emdat_impact_data_2020.csv"),  # noqa: F405
+        # noqa: F405DEMO_DIR.joinpath("nl_rails.gpkg"), # noqa: F405
     ]
-    + WS_DEMO_NC,
+    + WS_DEMO_NC,  # noqa: F405
 }
 
 
@@ -107,7 +107,7 @@ def setup_climada_data(reload=False):
         these files can be updated by setting reload to True,
         by default False
     """
-    for dirpath in [DEMO_DIR, SYSTEM_DIR, GSDP_DIR]:
+    for dirpath in [DEMO_DIR, SYSTEM_DIR, GSDP_DIR]:  # noqa: F405
         dirpath.mkdir(parents=True, exist_ok=True)
 
     for src_dir, path_list in REPO_DATA.items():

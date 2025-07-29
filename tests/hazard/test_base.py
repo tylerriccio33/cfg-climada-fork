@@ -386,7 +386,7 @@ class TestSelect(unittest.TestCase):
         self.assertIsInstance(sel_haz.intensity, sparse.csr_matrix)
         self.assertIsInstance(sel_haz.fraction, sparse.csr_matrix)
 
-    def test_select_event_id(self):
+    def test_select_event_id2(self):
         """Test select historical events."""
         haz = dummy_hazard()
         sel_haz = haz.select(event_id=np.array([4, 1]))
@@ -821,7 +821,7 @@ class TestAppend(unittest.TestCase):
         haz1 = dummy_hazard()
         haz2 = dummy_hazard()
         haz2.haz_type = "WS"
-        with self.assertRaises(ValueError) as cm:
+        with self.assertRaises(ValueError):
             haz1.append(haz2)
 
     def test_incompatible_units_fail(self):
@@ -829,7 +829,7 @@ class TestAppend(unittest.TestCase):
         haz1 = dummy_hazard()
         haz2 = dummy_hazard()
         haz2.units = "km/h"
-        with self.assertRaises(ValueError) as cm:
+        with self.assertRaises(ValueError):
             haz1.append(haz2)
 
     def test_incompatible_freq_units_fail(self):
@@ -837,7 +837,7 @@ class TestAppend(unittest.TestCase):
         haz1 = dummy_hazard()
         haz2 = dummy_hazard()
         haz2.frequency_unit = "1/month"
-        with self.assertRaises(ValueError) as cm:
+        with self.assertRaises(ValueError):
             haz1.append(haz2)
 
     def test_all_different_extend(self):
@@ -1181,7 +1181,6 @@ class TestStats(unittest.TestCase):
         )
         haz.intensity_thres = 0.5
         haz.frequency = np.array([1.0, 0.1, 0.01])
-        return_period = (1000, 30, 0.1)
         # first centroid has intensities 1e3 with frequencies .01, cum freq .01
         # second centroid has intensities 1e1, 1e3 with cum frequencies .1, .01, cum freq .11, .01
         # third centroid has intensities 1e1, 1e2, 1e3 with cum frequencies 1., .1, .01, cum freq 1.11, .11, .01

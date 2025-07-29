@@ -50,3 +50,7 @@ dev = [
    "ruff>=0.12.5",
    "ty>=0.0.1a16",
 ]
+
+[tool.ruff.lint]
+ignore = ["E731", "F403"]
+extend-fixable = ["E712"]

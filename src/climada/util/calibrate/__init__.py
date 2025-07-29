@@ -27,3 +27,14 @@ from .bayesian_optimizer import (
     select_best,
 )
 from .scipy_optimizer import ScipyMinimizeOptimizer
+
+__all__ = [
+    "Input",
+    "OutputEvaluator",
+    "BayesianOptimizer",
+    "BayesianOptimizerController",
+    "BayesianOptimizerOutput",
+    "BayesianOptimizerOutputEvaluator",
+    "select_best",
+    "ScipyMinimizeOptimizer",
+]

@@ -411,7 +411,7 @@ def rm_empty_dir(folder):
             rm_empty_dir(subfolder)
     try:
         folder.rmdir()
-    except:
+    except:  # noqa: E722
         pass
 
 

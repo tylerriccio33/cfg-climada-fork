@@ -70,12 +70,12 @@ class TestIbtracs(unittest.TestCase):
     def test_raw_ibtracs_invalid_pass(self):
         """Test reading invalid/non-existing TC from IBTrACS files"""
         with self.assertRaises(ValueError) as cm:
-            tc_track = tc.TCTracks.from_ibtracs_netcdf(storm_id="INVALID")
+            tc.TCTracks.from_ibtracs_netcdf(storm_id="INVALID")
         self.assertIn("IDs are invalid", str(cm.exception))
         self.assertIn("INVALID", str(cm.exception))
 
         with self.assertRaises(ValueError) as cm:
-            tc_track = tc.TCTracks.from_ibtracs_netcdf(storm_id="1988234N13298")
+            tc.TCTracks.from_ibtracs_netcdf(storm_id="1988234N13298")
         self.assertIn("IDs are not in IBTrACS", str(cm.exception))
         self.assertIn("1988234N13298", str(cm.exception))
 

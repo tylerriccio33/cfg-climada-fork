@@ -556,8 +556,8 @@ class TestCentroidsReaderWriter(unittest.TestCase):
     def test_from_raster_file(self):
         """Test from_raster_file"""
         width, height = 50, 60
-        o_lat, o_lon = (10.42822096697894, -69.33714959699981)
-        res_lat, res_lon = (-0.009000000000000341, 0.009000000000000341)
+        _o_lat, _o_lon = (10.42822096697894, -69.33714959699981)
+        _res_lat, _res_lon = (-0.009000000000000341, 0.009000000000000341)
 
         centr_ras = Centroids.from_raster_file(
             HAZ_DEMO_FL, window=Window(0, 0, width, height)
@@ -900,7 +900,7 @@ class TestCentroidsMethods(unittest.TestCase):
             cent.on_land, np.concatenate([on_land, on_land2, [None, None]])
         )
 
-    def test_select_pass(self):
+    def test_select_pass2(self):
         """Test Centroids.select method"""
         region_id = np.zeros(VEC_LAT.size)
         region_id[[2, 4]] = 10
@@ -914,7 +914,7 @@ class TestCentroidsMethods(unittest.TestCase):
         self.assertEqual(fil_centr.lon[1], VEC_LON[4])
         self.assertTrue(np.array_equal(fil_centr.region_id, np.ones(2) * 10))
 
-    def test_select_extent_pass(self):
+    def test_select_extent_pass2(self):
         """Test select extent"""
         centr = Centroids(
             lat=np.array([-5, -3, 0, 3, 5]),
@@ -977,7 +977,7 @@ class TestCentroidsMethods(unittest.TestCase):
             self.assertEqual(self.centr.lon[n], x)
             self.assertEqual(self.centr.lat[n], y)
 
-    def test_get_closest_point(self):
+    def test_get_closest_point2(self):
         """Test get_closest_point"""
         for y_sign in [1, -1]:
             meta = {

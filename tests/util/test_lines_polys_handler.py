@@ -1139,17 +1139,17 @@ class TestLPUtils(unittest.TestCase):
         """"""
         pnt, lines, poly = u_lp._pnt_line_poly_mask(GDF_POLY)
         self.assertTrue(np.all(poly))
-        self.assertTrue(np.all(lines == False))
-        self.assertTrue(np.all(pnt == False))
+        self.assertTrue(np.all(not lines))
+        self.assertTrue(np.all(not pnt))
 
         pnt, lines, poly = u_lp._pnt_line_poly_mask(GDF_LINE)
-        self.assertTrue(np.all(poly == False))
+        self.assertTrue(np.all(not poly))
         self.assertTrue(np.all(lines))
-        self.assertTrue(np.all(pnt == False))
+        self.assertTrue(np.all(not pnt))
 
         pnt, lines, poly = u_lp._pnt_line_poly_mask(GDF_POINT)
-        self.assertTrue(np.all(poly == False))
-        self.assertTrue(np.all(lines == False))
+        self.assertTrue(np.all(not poly))
+        self.assertTrue(np.all(not lines))
         self.assertTrue(np.all(pnt))
 
     def test_get_equalarea_proj(self):

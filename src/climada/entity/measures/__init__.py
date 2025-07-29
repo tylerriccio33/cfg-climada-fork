@@ -19,5 +19,5 @@ with CLIMADA. If not, see <https://www.gnu.org/licenses/>.
 init measures
 """
 
-from .base import *
-from .measure_set import *
+from .base import *  # noqa: F403
+from .measure_set import *  # noqa: F403

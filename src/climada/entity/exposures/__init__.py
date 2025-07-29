@@ -19,5 +19,5 @@ with CLIMADA. If not, see <https://www.gnu.org/licenses/>.
 init exposures
 """
 
-from .base import *
-from .litpop import *
+from .base import *  # noqa: F403
+from .litpop import *  # noqa: F403

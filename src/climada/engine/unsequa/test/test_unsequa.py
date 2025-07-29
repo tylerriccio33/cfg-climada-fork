@@ -492,14 +492,14 @@ class TestCalcImpact(unittest.TestCase):
         "in the sampling process."
 
         with self.assertLogs(LOGGER, level="WARNING") as logs:
-            unc_data = unc_calc.make_sample(N=4, sampling_method="ff")
+            unc_calc.make_sample(N=4, sampling_method="ff")
             self.assertEqual(len(logs.output), 1)
             self.assertIn(warning_msg, logs.output[0])
 
         # Error ff sampling
         unc_calc = CalcImpact(exp_unc, impf_unc, haz)
         with self.assertRaises(ValueError) as cm:
-            unc_data = unc_calc.make_sample(N=4, sampling_method="ff")
+            unc_calc.make_sample(N=4, sampling_method="ff")
         the_exception = cm.exception
         self.assertEqual(
             the_exception.args[0],
