@@ -25,6 +25,7 @@ from unittest.mock import MagicMock, create_autospec, patch
 
 import numpy as np
 import numpy.testing as npt
+import pytest
 import pandas as pd
 from scipy.sparse import csr_matrix
 
@@ -259,7 +260,4 @@ class TestOutputEvaluator(unittest.TestCase):
 
 # Execute Tests
 if __name__ == "__main__":
-    TESTS = unittest.TestLoader().loadTestsFromTestCase(TestInputPostInit)
-    TESTS.addTests(unittest.TestLoader().loadTestsFromTestCase(TestOptimizer))
-    TESTS.addTests(unittest.TestLoader().loadTestsFromTestCase(TestOutputEvaluator))
-    unittest.TextTestRunner(verbosity=2).run(TESTS)
+    pytest.main(["-v", __file__])
