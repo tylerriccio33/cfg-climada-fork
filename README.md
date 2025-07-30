@@ -2,6 +2,8 @@
 [![Build Status](http://ied-wcr-jenkins.ethz.ch/buildStatus/icon?job=climada_branches/develop)](http://ied-wcr-jenkins.ethz.ch/job/climada_branches/)
 [![Documentation build status](https://img.shields.io/readthedocs/climada-python.svg?style=flat-square)](https://readthedocs.org/projects/climada-python/builds/)
 
+!! THIS IS A FORK OF THE CLIMADA PROJECT !!
+
 # CLIMADA
 
 [CLIMADA](https://climada.ethz.ch/climada/) (CLIMate ADAptation) is a free and open-source software framework for climate risk assessment and adaptation
