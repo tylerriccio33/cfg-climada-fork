@@ -30,7 +30,7 @@ from shapefile import Shape
 
 import climada.util.coordinates as u_coord
 import climada.util.finance as u_fin
-from climada import CONFIG
+# from climada import CONFIG
 from climada.entity.exposures.base import DEF_REF_YEAR, INDICATOR_IMPF, Exposures
 from climada.entity.exposures.litpop import gpw_population as pop_util
 from climada.entity.exposures.litpop import nightlight as nl_util
@@ -38,7 +38,8 @@ from climada.util.constants import SYSTEM_DIR
 
 LOGGER = logging.getLogger(__name__)
 
-GPW_VERSION = CONFIG.exposures.litpop.gpw_population.gpw_version.int()
+# GPW_VERSION = CONFIG.exposures.litpop.gpw_population.gpw_version.int()
+GPW_VERSION = 11 # TODO: Idek what to do here
 """Version of Gridded Population of the World (GPW) input data. Check for updates."""
 
 

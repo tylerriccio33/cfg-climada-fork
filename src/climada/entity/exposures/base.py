@@ -42,7 +42,8 @@ from rasterio.warp import Resampling
 import climada.util.coordinates as u_coord
 import climada.util.hdf5_handler as u_hdf5
 import climada.util.plot as u_plot
-from climada import CONFIG
+
+# from climada import CONFIG
 from climada.hazard import Hazard
 from climada.util.constants import CMAP_RASTER, DEF_CRS, ONE_LAT_KM
 
@@ -57,7 +58,8 @@ INDICATOR_IMPF = "impf_"
 INDICATOR_CENTR = "centr_"
 """Name of the column containing the centroids id of specified hazard"""
 
-DEF_REF_YEAR = CONFIG.exposures.def_ref_year.int()
+DEF_REF_YEAR = 2015  # TODO: Used to be different
+# DEF_REF_YEAR = CONFIG.exposures.def_ref_year.int()
 """Default reference year"""
 
 DEF_VALUE_UNIT = "USD"

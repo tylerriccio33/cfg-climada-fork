@@ -32,7 +32,6 @@ from matplotlib.lines import Line2D
 
 import climada.hazard.tc_tracks
 import climada.util.coordinates
-from climada import CONFIG
 
 LOGGER = logging.getLogger(__name__)
 
@@ -91,7 +90,7 @@ def calc_perturbed_trajectories(
     max_ddirection=np.pi / 360,
     autocorr_dspeed=0.85,
     autocorr_ddirection=0.5,
-    seed=CONFIG.hazard.trop_cyclone.random_seed.int(),
+    seed=1,  # TODO: Used to be random?
     decay=True,
     use_global_decay_params=True,
     pool=None,

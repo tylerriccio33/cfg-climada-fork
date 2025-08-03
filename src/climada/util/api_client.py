@@ -31,6 +31,7 @@ from urllib.parse import quote, unquote, urlsplit, urlunsplit
 
 import pandas as pd
 import pycountry
+import tempfile
 import requests
 from peewee import CharField, DateTimeField, IntegrityError, Model, SqliteDatabase
 
@@ -41,7 +42,8 @@ from climada.util.constants import SYSTEM_DIR
 
 LOGGER = logging.getLogger(__name__)
 
-DB = SqliteDatabase(Path(CONFIG.data_api.cache_db.str()).expanduser())
+DB = SqliteDatabase(tempfile.gettempdir() + "/climada_data_api_cache.db")
+# DB = SqliteDatabase(Path(CONFIG.data_api.cache_db.str()).expanduser())
 
 HAZ_TYPES = [ht.str() for ht in CONFIG.data_api.supported_hazard_types.list()]
 EXP_TYPES = [et.str() for et in CONFIG.data_api.supported_exposures_types.list()]
